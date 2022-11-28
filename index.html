@@ -17,6 +17,8 @@ Part 1 index.html with minor changes to use JQuery Tabs and Slider Widgets.
   <head>
     <meta charset="utf-8">
     <title>Dynamic Multiplication Table</title>
+    <!--jQuery UI CSS file-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
   </head>
@@ -32,21 +34,24 @@ Part 1 index.html with minor changes to use JQuery Tabs and Slider Widgets.
                   <label for="multiplier_min">Minimum</label>
                   <!--HTML constraints on input to help with input validation-->
                   <input type="number" name="multiplier_min" id="multiplier_min" min="-50" max="50" required>
+                  <div id="multiplier_min_slider"></div>
                   <br>
                   <label for="multiplier_max">Maximum</label>
                   <input type="number" name="multiplier_max" id="multiplier_max" min="-50" max="50" required>
+                  <div id="multiplier_max_slider"></div>
                   <div id="minmax-multiplier"></div>
               </fieldset>
               <fieldset>
                   <legend>Multiplicand Range(Vertical Axis)</legend>
                   <label for="multiplicand_min">Minimum</label>
                   <input type="number" name="multiplicand_min" id="multiplicand_min" min="-50" max="50" required>
+                  <div id="multiplicand_min_slider"></div>
                   <br>
                   <label for="multiplicand_max">Maximum</label>
                   <input type="number" name="multiplicand_max" id="multiplicand_max" min="-50" max="50" required>
+                  <div id="multiplicand_max_slider"></div>
                   <div id="minmax-multiplicand"></div>
               </fieldset>
-              <!--Type button to ensure page will not reload onclick, call function to generate table onclick-->
               <input id="form_submit" type="submit" value="Create Your Table">
           </form>
 
@@ -57,12 +62,21 @@ Part 1 index.html with minor changes to use JQuery Tabs and Slider Widgets.
           <div id="multiplication-table"></div>
      </div>
 
-     <!--Includes jQuery and JQuery Validation Plugin-->
+     <!--Includes jQuery-->
      <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+     <!--Includes jQuery Validation Plugin-->
      <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
      <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
+
+     <!--Includes jQuery UI Slider and Tabs Widgets
+     <script type='text/javascript' src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>-->
+     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js">
+     </script>
+
+     <!--Once page is loaded, run form validation-->
      <script>
-         $(document).ready(function() {  // As soon as the page is loaded, run validate();
+         $(document).ready(function() {
              validate();
          });
      </script>
