@@ -178,6 +178,20 @@ function dynamicSubmit() {
 }
 
 /*
+savetoTab() saves the current multiplication table to a new tab onclick of Save Table button
+Referenced: https://jqueryui.com/tabs/#manipulation,
+and https://www.lidorsystems.com/support/articles/jquery/tabstrip/tab-with-check-box.aspx
+*/
+function savetoTab() {
+    if($("form").valid() == true) {  // only save valid tables
+        console.log("savetoTab() here");
+    }
+    else {
+        $("#invalid_save").append("You cannot save an invalid table.");
+    }
+    
+}
+/*
 buildTable() is called by validate() on a valid submission of the form. It parses the user input to create and fill a multiplication table.
 */
 function buildTable()

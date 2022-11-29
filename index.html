@@ -25,7 +25,7 @@ Part 1 index.html with minor changes to use JQuery Tabs and Slider Widgets.
   <body>
       <h1>Dynamic Multiplication Table</h1>
       <div class="wrapper">
-          <p>Welcome! By inputing some integers below, you'll be able to create a custom muliplication table.</p>
+          <p>Welcome! By inputing some integers below, you'll be able to create a custom muliplication table. Save a table for later reference by pressing "Save Table".</p>
           <p id="requirements">NOTE: The form will only accept integers from -50 to 50 and decimals will be dropped. All fields are required.</p>
 
           <form id="form">
@@ -52,14 +52,20 @@ Part 1 index.html with minor changes to use JQuery Tabs and Slider Widgets.
                   <div id="multiplicand_max_slider"></div>
                   <div id="minmax-multiplicand"></div>
               </fieldset>
-              <input id="form_submit" type="submit" value="Create Your Table">
+              <input id="form_submit" type="submit" value="Save Table" onclick="savetoTab();">
+              <div id="invalid_save"></div>
           </form>
 
           <!--Error messages related to invalid input will be inserted here by script.js-->
           <div id="error_invalid_input"></div>
 
-          <!--Multiplication table will be inserted here by script.js-->
+          <!--Cuurent multiplication table will be inserted here by script.js-->
           <div id="multiplication-table"></div>
+          
+          <!--Saved tables will appear here-->
+          <div id="tabs">
+              <ul></ul>
+          </div>
      </div>
 
      <!--Includes jQuery-->
