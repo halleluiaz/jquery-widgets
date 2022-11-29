@@ -5,7 +5,7 @@ Halleluia Zeyohannes, UMass Lowell Computer Science,
 halleluia_zeyohannes@student.uml.edu
 Copyright (c) 2022 by Halleluia Zeyohannes. All rights reserved. May be freely
 copied or excerpted for educational purposes with credit to the author.
-updated by HZ on 27 Nov 2022 at 9PM
+updated by HZ on 29 Nov 2022 at 1AM
 
 Purpose: All structure minus the dynamic table for the website is defined here.
 Makes use of attributes to give unique identifiers to elements so that they can
@@ -33,22 +33,22 @@ Part 1 index.html with minor changes to use JQuery Tabs and Slider Widgets.
                   <legend>Multiplier Range(Horizontal Axis)</legend>
                   <label for="multiplier_min">Minimum</label>
                   <!--HTML constraints on input to help with input validation-->
-                  <input type="number" name="multiplier_min" id="multiplier_min" min="-50" max="50" required>
+                  <input type="number" name="multiplier_min" id="multiplier_min" min="-50" max="50" value="0" required>
                   <div id="multiplier_min_slider"></div>
                   <br>
                   <label for="multiplier_max">Maximum</label>
-                  <input type="number" name="multiplier_max" id="multiplier_max" min="-50" max="50" required>
+                  <input type="number" name="multiplier_max" id="multiplier_max" min="-50" max="50" value="0" required>
                   <div id="multiplier_max_slider"></div>
                   <div id="minmax-multiplier"></div>
               </fieldset>
               <fieldset>
                   <legend>Multiplicand Range(Vertical Axis)</legend>
                   <label for="multiplicand_min">Minimum</label>
-                  <input type="number" name="multiplicand_min" id="multiplicand_min" min="-50" max="50" required>
+                  <input type="number" name="multiplicand_min" id="multiplicand_min" min="-50" max="50" value="0" required>
                   <div id="multiplicand_min_slider"></div>
                   <br>
                   <label for="multiplicand_max">Maximum</label>
-                  <input type="number" name="multiplicand_max" id="multiplicand_max" min="-50" max="50" required>
+                  <input type="number" name="multiplicand_max" id="multiplicand_max" min="-50" max="50" value="0" required>
                   <div id="multiplicand_max_slider"></div>
                   <div id="minmax-multiplicand"></div>
               </fieldset>

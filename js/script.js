@@ -5,7 +5,7 @@ Halleluia Zeyohannes, UMass Lowell Computer Science,
 halleluia_zeyohannes@student.uml.edu
 Copyright (c) 2022 by Halleluia Zeyohannes. All rights reserved. May be freely
 copied or excerpted for educational purposes with credit to the author.
-updated by HZ on 28 Nov 2022 at 6PM
+updated by HZ on 29 Nov 2022 at 1AM
 
 Purpose: This script contains the functions that builds the dynamic multiplication
 table from user input and validates the user input. Input is given using jQuery Sliders
@@ -106,6 +106,7 @@ function validate() {
 slider() uses the jQuery Slider widget and makes sliders for the user input appear on the website.
 */
 function slider() {
+    // Multiplier Main two-way binding between slider and input box
     $("#multiplier_min_slider").slider({
         min: -50,
         max: 50,
@@ -117,7 +118,49 @@ function slider() {
     $("#multiplier_min").on("keyup", function() {
         $("#multiplier_min_slider").slider("value", this.value);  // move the slider when the user changes input in box
         // dynamicSubmit();
-      });
+    });
+
+    // Multiplier Max two-way binding
+    $("#multiplier_max_slider").slider({
+        min: -50,
+        max: 50,
+        slide: function(event, ui){
+            $("#multiplier_max").val(ui.value);  // change the value in the input box when slider is moved
+            // dynamicSubmit();
+        }
+    });
+    $("#multiplier_max").on("keyup", function() {
+        $("#multiplier_max_slider").slider("value", this.value);  // move the slider when the user changes input in box
+        // dynamicSubmit();
+    });
+
+    // Multiplicand Min two-way binding
+    $("#multiplicand_min_slider").slider({
+        min: -50,
+        max: 50,
+        slide: function(event, ui){
+            $("#multiplicand_min").val(ui.value);  // change the value in the input box when slider is moved
+            // dynamicSubmit();
+        }
+    });
+    $("#multiplicand_min").on("keyup", function() {
+        $("#multiplicand_min_slider").slider("value", this.value);  // move the slider when the user changes input in box
+        // dynamicSubmit();
+    });
+
+    // Multiplicand Max two-way binding
+    $("#multiplicand_max_slider").slider({
+        min: -50,
+        max: 50,
+        slide: function(event, ui){
+            $("#multiplicand_max").val(ui.value);  // change the value in the input box when slider is moved
+            // dynamicSubmit();
+        }
+    });
+    $("#multiplicand_max").on("keyup", function() {
+        $("#multiplicand_max_slider").slider("value", this.value);  // move the slider when the user changes input in box
+        // dynamicSubmit();
+    });
 }
 
 /*
