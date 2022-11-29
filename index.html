@@ -5,7 +5,7 @@ Halleluia Zeyohannes, UMass Lowell Computer Science,
 halleluia_zeyohannes@student.uml.edu
 Copyright (c) 2022 by Halleluia Zeyohannes. All rights reserved. May be freely
 copied or excerpted for educational purposes with credit to the author.
-updated by HZ on 29 Nov 2022 at 1AM
+updated by HZ on 29 Nov 2022 at 3PM
 
 Purpose: All structure minus the dynamic table for the website is defined here.
 Makes use of attributes to give unique identifiers to elements so that they can
@@ -25,7 +25,7 @@ Part 1 index.html with minor changes to use JQuery Tabs and Slider Widgets.
   <body>
       <h1>Dynamic Multiplication Table</h1>
       <div class="wrapper">
-          <p>Welcome! By inputing some integers below, you'll be able to create a custom muliplication table. Save a table for later reference by pressing "Save Table".</p>
+          <p>Welcome! By inputing some integers below, you'll be able to create a custom muliplication table. Save a table for later reference by pressing "Save Table". They will appear under the live multiplication table.</p>
           <p id="requirements">NOTE: The form will only accept integers from -50 to 50 and decimals will be dropped. All fields are required.</p>
 
           <form id="form">
@@ -63,7 +63,7 @@ Part 1 index.html with minor changes to use JQuery Tabs and Slider Widgets.
           <div id="multiplication-table"></div>
           
           <!--Saved tables will appear here-->
-          <div id="tabs">
+          <div id="saved_tables">
               <ul></ul>
           </div>
      </div>

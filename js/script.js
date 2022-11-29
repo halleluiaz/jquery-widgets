@@ -5,12 +5,15 @@ Halleluia Zeyohannes, UMass Lowell Computer Science,
 halleluia_zeyohannes@student.uml.edu
 Copyright (c) 2022 by Halleluia Zeyohannes. All rights reserved. May be freely
 copied or excerpted for educational purposes with credit to the author.
-updated by HZ on 29 Nov 2022 at 1AM
+updated by HZ on 29 Nov 2022 at 3PM
 
 Purpose: This script contains the functions that builds the dynamic multiplication
 table from user input and validates the user input. Input is given using jQuery Sliders
 or typed in and tables can be saved using the jQuery Tabs Widget.
 */
+
+// used to keep track of tabs. made global so that it is not altered on every call to savetoTab()
+var index = 1;
 
 /*
 validate() is used to check the inputs of the form in real time and ensure that the user
@@ -185,6 +188,31 @@ and https://www.lidorsystems.com/support/articles/jquery/tabstrip/tab-with-check
 function savetoTab() {
     if($("form").valid() == true) {  // only save valid tables
         console.log("savetoTab() here");
+        var count = $("#saved_tables li").length;
+        console.log("Tabs open; index: " + count + "; " + index);
+
+        $("#saved_tables").tabs(); // initializes tabs
+
+        // get input for the tab name
+        var minX = parseInt(document.getElementById('multiplier_min').value, 10);
+        var maxX = parseInt(document.getElementById('multiplier_max').value, 10);
+        var minY = parseInt(document.getElementById('multiplicand_min').value, 10);
+        var maxY = parseInt(document.getElementById('multiplicand_max').value, 10);
+        
+        index++;  // increase index when new tab is created
+
+        // create the header for new tab
+        var header = "<li class='tab'><a href='#tab-" + index + "'> [" + minX + ", " + maxX + "] x [" + minY + ", " + maxY + "]</a>"
+        + "<input class='tab-checkbox' type='checkbox'></li>";
+
+        // add new header to the list
+        $("#saved_tables ul").append(header);
+
+        // add the current multiplication table to the tab
+        $("#saved_tables").append('<div id="tab-' + index + '">' + $("#multiplication-table").html() + '</div>');
+
+        // refresh tabs so new tab is visible
+        $("#saved_tables").tabs("refresh");
     }
     else {
         $("#invalid_save").append("You cannot save an invalid table.");
