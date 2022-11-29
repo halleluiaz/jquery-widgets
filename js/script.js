@@ -5,7 +5,7 @@ Halleluia Zeyohannes, UMass Lowell Computer Science,
 halleluia_zeyohannes@student.uml.edu
 Copyright (c) 2022 by Halleluia Zeyohannes. All rights reserved. May be freely
 copied or excerpted for educational purposes with credit to the author.
-updated by HZ on 27 Nov 2022 at 9PM
+updated by HZ on 28 Nov 2022 at 6PM
 
 Purpose: This script contains the functions that builds the dynamic multiplication
 table from user input and validates the user input. Input is given using jQuery Sliders
@@ -102,6 +102,38 @@ function validate() {
    // event.preventDefault();
 }
 
+/*
+slider() uses the jQuery Slider widget and makes sliders for the user input appear on the website.
+*/
+function slider() {
+    $("#multiplier_min_slider").slider({
+        min: -50,
+        max: 50,
+        slide: function(event, ui){
+            $("#multiplier_min").val(ui.value);  // change the value in the input box when slider is moved
+            // dynamicSubmit();
+        }
+    });
+    $("#multiplier_min").on("keyup", function() {
+        $("#multiplier_min_slider").slider("value", this.value);  // move the slider when the user changes input in box
+        // dynamicSubmit();
+      });
+}
+
+/*
+Submits the form as soon as the user changes the values with the sliders/input box and builds the table live
+Referenced: https://jqueryvalidation.org/valid/
+*/
+function dynamicSubmit() {
+    // if current form inputs are valid, autosubmit the form
+    if($("#form").valid() == true) {
+        $("#form").submit();
+    }
+}
+
+/*
+buildTable() is called by validate() on a valid submission of the form. It parses the user input to create and fill a multiplication table.
+*/
 function buildTable()
 {
     // get user input from HTML form, and use parseInt(..) to get a number or NaN
