@@ -112,12 +112,12 @@ function slider() {
         max: 50,
         slide: function(event, ui){
             $("#multiplier_min").val(ui.value);  // change the value in the input box when slider is moved
-            // dynamicSubmit();
+            dynamicSubmit();
         }
     });
     $("#multiplier_min").on("keyup", function() {
         $("#multiplier_min_slider").slider("value", this.value);  // move the slider when the user changes input in box
-        // dynamicSubmit();
+        dynamicSubmit();
     });
 
     // Multiplier Max two-way binding
@@ -126,12 +126,12 @@ function slider() {
         max: 50,
         slide: function(event, ui){
             $("#multiplier_max").val(ui.value);  // change the value in the input box when slider is moved
-            // dynamicSubmit();
+            dynamicSubmit();
         }
     });
     $("#multiplier_max").on("keyup", function() {
         $("#multiplier_max_slider").slider("value", this.value);  // move the slider when the user changes input in box
-        // dynamicSubmit();
+        dynamicSubmit();
     });
 
     // Multiplicand Min two-way binding
@@ -140,12 +140,12 @@ function slider() {
         max: 50,
         slide: function(event, ui){
             $("#multiplicand_min").val(ui.value);  // change the value in the input box when slider is moved
-            // dynamicSubmit();
+            dynamicSubmit();
         }
     });
     $("#multiplicand_min").on("keyup", function() {
         $("#multiplicand_min_slider").slider("value", this.value);  // move the slider when the user changes input in box
-        // dynamicSubmit();
+        dynamicSubmit();
     });
 
     // Multiplicand Max two-way binding
@@ -154,12 +154,12 @@ function slider() {
         max: 50,
         slide: function(event, ui){
             $("#multiplicand_max").val(ui.value);  // change the value in the input box when slider is moved
-            // dynamicSubmit();
+            dynamicSubmit();
         }
     });
     $("#multiplicand_max").on("keyup", function() {
         $("#multiplicand_max_slider").slider("value", this.value);  // move the slider when the user changes input in box
-        // dynamicSubmit();
+        dynamicSubmit();
     });
 }
 
