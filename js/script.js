@@ -104,6 +104,9 @@ function validate() {
 
 /*
 slider() uses the jQuery Slider widget and makes sliders for the user input appear on the website.
+Referenced: Chapter 6: The Slider Widget in Dan Wellman’s book on the jQuery UI library,
+https://jqueryui.com/slider/,
+and https://jqueryui.com/slider/#hotelrooms
 */
 function slider() {
     // Multiplier Main two-way binding between slider and input box
