@@ -116,6 +116,12 @@ button.
 }
 
 /*
+Used to hide elements as needed
+*/
+.hidden {
+    display: none;
+}
+/*
 Add styling to error messages to catch user's attention
 */
 #error_invalid_input {

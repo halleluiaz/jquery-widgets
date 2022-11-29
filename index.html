@@ -64,6 +64,7 @@ Part 1 index.html with minor changes to use JQuery Tabs and Slider Widgets.
           
           <!--Saved tables will appear here-->
           <div id="saved_tables">
+              <input id="remove_tabs" class="hidden" type="button" value="Remove Selected Tabs" onclick="removeSelectedTabs();">
               <ul></ul>
           </div>
      </div>
@@ -85,6 +86,7 @@ Part 1 index.html with minor changes to use JQuery Tabs and Slider Widgets.
          $(document).ready(function() {
              slider();
              validate();
+             dynamicSubmit();
          });
      </script>
   </body>

@@ -117,11 +117,13 @@ function slider() {
         min: -50,
         max: 50,
         slide: function(event, ui){
+            $("#invalid_save").empty();
             $("#multiplier_min").val(ui.value);  // change the value in the input box when slider is moved
             dynamicSubmit();
         }
     });
     $("#multiplier_min").on("keyup", function() {
+        $("#invalid_save").empty();
         $("#multiplier_min_slider").slider("value", this.value);  // move the slider when the user changes input in box
         dynamicSubmit();
     });
@@ -131,11 +133,13 @@ function slider() {
         min: -50,
         max: 50,
         slide: function(event, ui){
+            $("#invalid_save").empty();
             $("#multiplier_max").val(ui.value);  // change the value in the input box when slider is moved
             dynamicSubmit();
         }
     });
     $("#multiplier_max").on("keyup", function() {
+        $("#invalid_save").empty();
         $("#multiplier_max_slider").slider("value", this.value);  // move the slider when the user changes input in box
         dynamicSubmit();
     });
@@ -145,11 +149,13 @@ function slider() {
         min: -50,
         max: 50,
         slide: function(event, ui){
+            $("#invalid_save").empty();
             $("#multiplicand_min").val(ui.value);  // change the value in the input box when slider is moved
             dynamicSubmit();
         }
     });
     $("#multiplicand_min").on("keyup", function() {
+        $("#invalid_save").empty();
         $("#multiplicand_min_slider").slider("value", this.value);  // move the slider when the user changes input in box
         dynamicSubmit();
     });
@@ -159,11 +165,13 @@ function slider() {
         min: -50,
         max: 50,
         slide: function(event, ui){
+            $("#invalid_save").empty();
             $("#multiplicand_max").val(ui.value);  // change the value in the input box when slider is moved
             dynamicSubmit();
         }
     });
     $("#multiplicand_max").on("keyup", function() {
+        $("#invalid_save").empty();
         $("#multiplicand_max_slider").slider("value", this.value);  // move the slider when the user changes input in box
         dynamicSubmit();
     });
@@ -186,11 +194,13 @@ Referenced: https://jqueryui.com/tabs/#manipulation,
 and https://www.lidorsystems.com/support/articles/jquery/tabstrip/tab-with-check-box.aspx
 */
 function savetoTab() {
+    $("#invalid_save").empty(); // clear old error messages
     if($("form").valid() == true) {  // only save valid tables
         console.log("savetoTab() here");
         var count = $("#saved_tables li").length;
         console.log("Tabs open; index: " + count + "; " + index);
 
+        $("#remove_tabs").removeClass("hidden"); // show remove tabs button when there are tabs
         $("#saved_tables").tabs(); // initializes tabs
 
         // get input for the tab name
@@ -213,12 +223,36 @@ function savetoTab() {
 
         // refresh tabs so new tab is visible
         $("#saved_tables").tabs("refresh");
+
+        /* 
+        make new tab active
+        Referenced: https://itecnote.com/tecnote/jquery-change-active-tab-on-button-click/,
+        and https://jqueryui.com/upgrade-guide/1.9/#deprecated-select-method
+        */
+        $("#saved_tables").tabs("option", "active", -1);
     }
     else {
         $("#invalid_save").append("You cannot save an invalid table.");
     }
     
+    return false;
 }
+
+/*
+removeSelectedTabs() removes all tabs whos associated checkbox has been checked
+*/
+function removeSelectedTabs() {
+    console.log("removeSelectedTabs() here");
+    $("input.tab-checkbox").each(function() {
+        if($(this).checked == true) {
+            console.log("boo");
+            var panelId = $(this).closest("li").remove().attr("aria-controls");
+            $("#" + panelId).remove();
+            tabs.tabs("refresh");
+        }
+    });
+}
+
 /*
 buildTable() is called by validate() on a valid submission of the form. It parses the user input to create and fill a multiplication table.
 */
