@@ -230,16 +230,6 @@ function savetoTab() {
         and https://jqueryui.com/upgrade-guide/1.9/#deprecated-select-method
         */
         $("#saved_tables").tabs("option", "active", -1);
-
-        $("saved_tables").delegate("input#remove_tabs", "click", function() {
-            var panelID = $(this).closest( "li" ).remove().attr( "aria-controls" );
-            $("#"+ panelID).remove();
-            $("#saved_tables").tabs("refresh");
-
-            if($("#saved_tables li").length == 0){
-                $("#saved_tables").tabs("destroy");
-            }
-        });
     }
     else {
         $("#invalid_save").append("You cannot save an invalid table.");
@@ -250,23 +240,25 @@ function savetoTab() {
 
 /*
 removeSelectedTabs() removes all tabs whos associated checkbox has been checked
+Referenced: https://jqueryui.com/tabs/#manipulation,
+and discussed with grader Jennifer R.
 */
 function removeSelectedTabs() {
-    console.log("removeSelectedTabs() here");
-    var checkedBoxes = document.querySelectorAll('.tab-checkbox:checked'); // array of all checked checkboxes
-    console.log(checkedBoxes);
+    var checkedBoxes = document.querySelectorAll('.tab-checkbox:checked'); // node list of all checked checkboxes
     
-    for(var i = 0; i < checkedBoxes.length; i++) {
-        var tabIndex = checkedBoxes[i].attr("id");
-        console.log(tabIndex);
+    for(var i = 0; i < checkedBoxes.length; i++) {  // iterate over entire node list to deleted the checked tabs one by one
+        var panelID = checkedBoxes[i].closest("li").getAttribute("aria-controls");
+        console.log(panelID);
+        checkedBoxes[i].closest("li").remove();
+        $("#" + panelID).remove();
+        $("#saved_tables").tabs("refresh");  // refresh to show changes
+
+        if($("#saved_tables li").length == 0){  // if all tabs have been closed, get rid of the widget and hide the button
+            $("#saved_tables").tabs("destroy");
+            var button = document.getElementById("remove_tabs");
+            button.classList.add("hidden");
+        }
     }
-    /*checkedBoxes.forEach(function() {
-        var tabIndex = checkedBoxes.attr("id");
-        var panelId = $(this).closest("li").remove().attr("aria-controls");
-        console.log(panelId);
-        $("#" + panelId).remove();
-        $("#saved_tables").tabs("refresh");
-    });*/
 }
 
 /*
