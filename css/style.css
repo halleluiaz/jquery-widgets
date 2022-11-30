@@ -136,6 +136,14 @@ input#remove_tabs:active {
     color: #ffffff;
 }
 
+div.tab_content {
+    max-width: 1440px;
+    max-height: 550px;
+    overflow: scroll;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    
+}
 /*
 Styled to match the site's aesthetic rather than using the bland grey
 button.
@@ -153,10 +161,6 @@ button.
 #form input[type="submit"]:active {
     background-color: #000000;
     color: #ffffff;
-}
-
-#multiplication-table {
-    margin: 30px;
 }
 
 /*
@@ -242,6 +246,7 @@ of a large range will not take over the site's space.
 #multiplication-table {
     max-height: 550px;
     overflow: scroll;
+    margin: 30px;
 }
 
 table {

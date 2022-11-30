@@ -113,7 +113,7 @@ https://jqueryui.com/slider/,
 and https://jqueryui.com/slider/#hotelrooms
 */
 function slider() {
-    // Multiplier Main two-way binding between slider and input box
+    // Multiplier Min two-way binding between slider and input box
     $("#multiplier_min_slider").slider({
         min: -50,
         max: 50,
@@ -220,7 +220,7 @@ function savetoTab() {
         $("#saved_tables ul").append(header);
 
         // add the current multiplication table to the tab
-        $("#saved_tables").append('<div id="tab-' + index + '">' + $("#multiplication-table").html() + '</div>');
+        $("#saved_tables").append('<div class="tab_content" id="tab-' + index + '">' + $("#multiplication-table").html() + '</div>');
 
         // refresh tabs so new tab is visible
         $("#saved_tables").tabs("refresh");
