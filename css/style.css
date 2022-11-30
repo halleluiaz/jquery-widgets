@@ -5,7 +5,7 @@ Halleluia Zeyohannes, UMass Lowell Computer Science,
 halleluia_zeyohannes@student.uml.edu
 Copyright (c) 2022 by Halleluia Zeyohannes. All rights reserved. May be freely
 copied or excerpted for educational purposes with credit to the author.
-updated by HZ on 29 Nov 2022 at 3PM
+updated by HZ on 30 Nov 2022 at 5PM
 
 Purpose: Style the elements of index.html to increase readability and ease of use
 of the site.
@@ -93,6 +93,50 @@ Styling the sliders to match site's aesthetic and add spacing
 }
 
 /*
+Styling the tabs area to match site's aesthetic
+*/
+#saved_tables {
+    background-color: #ffffff;
+}
+
+.tab.ui-state-default {
+    color: #8E3200;
+    background: #f5c04d; 
+}
+
+.tab.ui-state-active {
+    background: #ffe09c;
+    color: black;
+  }
+
+.ui-tabs-nav {
+    background: #FFEBC1;
+    color: white;
+}
+
+#tabs > ul > li.tab.ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active {
+    background: black;
+}
+
+input#remove_tabs {
+    color: #8E3200;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #ffe09c;
+    font-weight: bold;
+    font-size: 90%;
+    margin: 10px;
+}
+
+input#remove_tabs:hover {
+    background-color: #f5c04d;
+}
+
+input#remove_tabs:active {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/*
 Styled to match the site's aesthetic rather than using the bland grey
 button.
 */
@@ -175,6 +219,7 @@ th,
 td {
     border: 2px solid #8E3200;
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 th,
@@ -204,6 +249,7 @@ table {
     margin-right: auto;
     border-collapse: collapse;
     outline-color: #8E3200;
+    color: #8E3200;
 }
 
 table th {
