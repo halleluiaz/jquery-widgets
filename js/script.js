@@ -5,7 +5,7 @@ Halleluia Zeyohannes, UMass Lowell Computer Science,
 halleluia_zeyohannes@student.uml.edu
 Copyright (c) 2022 by Halleluia Zeyohannes. All rights reserved. May be freely
 copied or excerpted for educational purposes with credit to the author.
-updated by HZ on 29 Nov 2022 at 3PM
+updated by HZ on 30 Nov 2022 at 2PM
 
 Purpose: This script contains the functions that builds the dynamic multiplication
 table from user input and validates the user input. Input is given using jQuery Sliders
@@ -13,6 +13,7 @@ or typed in and tables can be saved using the jQuery Tabs Widget.
 */
 
 // used to keep track of tabs. made global so that it is not altered on every call to savetoTab()
+// and can be accessed as needed in other functions.
 var index = 1;
 
 /*
