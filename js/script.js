@@ -212,8 +212,8 @@ function savetoTab() {
         index++;  // increase index when new tab is created
 
         // create the header for new tab
-        var header = "<li class='tab'><a href='#tab-" + index + "'> [" + minX + ", " + maxX + "] x [" + minY + ", " + maxY + "]</a>"
-        + "<input class='tab-checkbox' type='checkbox'></li>";
+        var header = "<li class='tab' id='" + index + "'><a href='#tab-" + index + "'> [" + minX + ", " + maxX + "] x [" + minY + ", " + maxY + "]</a>"
+        + "<input class='tab-checkbox' id='" + index + "' type='checkbox'></li>";
 
         // add new header to the list
         $("#saved_tables ul").append(header);
@@ -230,6 +230,16 @@ function savetoTab() {
         and https://jqueryui.com/upgrade-guide/1.9/#deprecated-select-method
         */
         $("#saved_tables").tabs("option", "active", -1);
+
+        $("saved_tables").delegate("input#remove_tabs", "click", function() {
+            var panelID = $(this).closest( "li" ).remove().attr( "aria-controls" );
+            $("#"+ panelID).remove();
+            $("#saved_tables").tabs("refresh");
+
+            if($("#saved_tables li").length == 0){
+                $("#saved_tables").tabs("destroy");
+            }
+        });
     }
     else {
         $("#invalid_save").append("You cannot save an invalid table.");
@@ -243,14 +253,20 @@ removeSelectedTabs() removes all tabs whos associated checkbox has been checked
 */
 function removeSelectedTabs() {
     console.log("removeSelectedTabs() here");
-    $("input.tab-checkbox").each(function() {
-        if($(this).checked == true) {
-            console.log("boo");
-            var panelId = $(this).closest("li").remove().attr("aria-controls");
-            $("#" + panelId).remove();
-            tabs.tabs("refresh");
-        }
-    });
+    var checkedBoxes = document.querySelectorAll('.tab-checkbox:checked'); // array of all checked checkboxes
+    console.log(checkedBoxes);
+    
+    for(var i = 0; i < checkedBoxes.length; i++) {
+        var tabIndex = checkedBoxes[i].attr("id");
+        console.log(tabIndex);
+    }
+    /*checkedBoxes.forEach(function() {
+        var tabIndex = checkedBoxes.attr("id");
+        var panelId = $(this).closest("li").remove().attr("aria-controls");
+        console.log(panelId);
+        $("#" + panelId).remove();
+        $("#saved_tables").tabs("refresh");
+    });*/
 }
 
 /*
