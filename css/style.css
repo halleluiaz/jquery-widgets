@@ -101,21 +101,21 @@ Styling the tabs area to match site's aesthetic
 
 .tab.ui-state-default {
     color: #8E3200;
-    background: #f5c04d; 
+    background: #ffe09c; 
 }
 
 .tab.ui-state-active {
-    background: #ffe09c;
-    color: black;
-  }
+    background: #f5c04d;
+}
 
 .ui-tabs-nav {
     background: #FFEBC1;
-    color: white;
 }
 
-#tabs > ul > li.tab.ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active {
-    background: black;
+#saved_tables > ul > li > a {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: #8E3200;
 }
 
 input#remove_tabs {
